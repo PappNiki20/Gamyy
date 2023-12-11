@@ -1,3 +1,3 @@
 # Gamyy
-## szerializálás (serialization)
+## szerializálás (serializable)
 ## Tervezési minta (design pattern)
