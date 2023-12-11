@@ -1,6 +1,13 @@
 
 package gamyyy;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Jatek {
 
    
@@ -17,7 +24,30 @@ public class Jatek {
         k2.felvesz(t2, 3);
         kiirTomb("Karakterek felszerelésekkel:",kk);
         k2.hasznal("kinderjoy");
-        kiirTomb("Karakterek felszerelésekkel:",kk);
+        kiirTomb("Karakterek felszerelések használatával:     :",kk);
+        k2.hasznal("kinderjoy",2);
+        kiirTomb("Karakterek felszerelések használatával számmal megadva:     :",kk);
+        k2.hasznal("kinderjoy",2);
+        kiirTomb("Karakterek felszerelések használatával számmal megadva:     :",kk);
+             try(ObjectOutputStream objKi= new ObjectOutputStream(new FileOutputStream("karakterek.bin"))){
+            /* bármilyen, és bármennyi object kiírható 
+               most 1 db Karakter[] kerül kiírása bináris formában
+            */
+            //objKi.writeObject(harcos);
+            //objKi.writeObject(varazslo);
+            objKi.writeObject(kk);
+            
+            /* ha try resources, akkor nem kell close, 
+            mert a try-ból való kilépéskor automatikusan meghívja az 
+            AutoCloseable interface által biztosított close metódust
+            */
+            //objKi.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Jatek.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Jatek.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
     }
 
      private static <T> void kiirTomb(String cim, T[] tomb) {
@@ -25,6 +55,6 @@ public class Jatek {
         for (T elem : tomb) {
             System.out.println(elem);
         }
-    }
-    
+     
+     }
 }

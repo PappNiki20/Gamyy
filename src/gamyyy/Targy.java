@@ -1,9 +1,10 @@
 
 package gamyyy;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class Targy {
+public class Targy implements Serializable{
     UUID id;
     String nev,leiras;
 
