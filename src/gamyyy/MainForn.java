@@ -97,24 +97,19 @@ public class MainForn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       jButton1.setVisible(true);
-        helyszin = helyszin.egyikirany();
-        
-       jTextArea1.append("\n"+helyszin.leiras());
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        helyszin = helyszin.egyikirany();
-  jTextArea1.insert(helyszin.leiras()+"\n", 0);
-  jTextArea1.insert(helyszin.leiras()+"\n", 0);
-  jTextArea1.insert(helyszin.leiras()+"\n", 0);
-  jTextArea1.insert(helyszin.leiras()+"\n", 0);
-  jTextArea1.insert(helyszin.leiras()+"\n", 0);
-  jTextArea1.insert(helyszin.leiras()+"\n", 0);
-  jTextArea1.insert(helyszin.leiras()+"\n", 0);
-  
+  jTextArea1.setCaretPosition(0);
+ 
+   if(helyszin instanceof MasikIrany){
+       jButton1.setVisible(true);
+   }
+   else {
+   jButton1.setVisible(false);}
    jButton2.setText(helyszin.egyfelirattal());
-   jTextArea1.setCaretPosition(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
