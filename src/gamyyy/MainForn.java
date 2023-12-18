@@ -8,17 +8,19 @@ package gamyyy;
  *
  * @author papp.nikoletta
  */
+
 public class MainForn extends javax.swing.JFrame {
 
     /**
      * Creates new form MainForn
      */
+   private  Helyszin helyszin;
     public MainForn() {
         initComponents();
-        Start alma = new Start();
-        jTextArea1.setText(alma.leiras());
+        helyszin = new Start();
+        jTextArea1.setText(helyszin.leiras());
         jButton1.setVisible(false);
-        jButton2.setText("tovább");
+        jButton2.setText(helyszin.egyfelirattal());
         
     }
 
@@ -38,8 +40,11 @@ public class MainForn extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Játék");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFocusTraversalPolicy(null);
         setMinimumSize(new java.awt.Dimension(350, 200));
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
@@ -52,6 +57,11 @@ public class MainForn extends javax.swing.JFrame {
         });
 
         jButton2.setText("Egyik irány");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,8 +97,25 @@ public class MainForn extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       jButton1.setVisible(true);
+        helyszin = helyszin.egyikirany();
+        
+       jTextArea1.append("\n"+helyszin.leiras());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       helyszin = helyszin.egyikirany();
+  jTextArea1.insert(helyszin.leiras()+"\n", 0);
+  jTextArea1.insert(helyszin.leiras()+"\n", 0);
+  jTextArea1.insert(helyszin.leiras()+"\n", 0);
+  jTextArea1.insert(helyszin.leiras()+"\n", 0);
+  jTextArea1.insert(helyszin.leiras()+"\n", 0);
+  jTextArea1.insert(helyszin.leiras()+"\n", 0);
+  jTextArea1.insert(helyszin.leiras()+"\n", 0);
+  
+   jButton2.setText(helyszin.egyfelirattal());
+   jTextArea1.setCaretPosition(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
