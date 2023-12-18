@@ -1,7 +1,7 @@
-
 package gamyyy;
 
 public class Karakter {
+
     int eletero, ugyesseg, szerencse;
     String[] felszereles;
 
@@ -11,7 +11,5 @@ public class Karakter {
         this.szerencse = szerencse;
         this.felszereles = felszereles;
     }
-    
-   
-    
+
 }
